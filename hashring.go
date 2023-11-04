@@ -250,7 +250,6 @@ func (hr *HashRing) updateNodes(nodes []string) {
 	}
 
 	for _, node := range nodeToAdd {
-		hr.nodeList[node] = struct{}{}
 		// we're opening separate connection for each node, since we don't implement ServerPicker
 		hr.mc[node] = hr.connOpenerFunc(node)
 		hr.AddNode(node)
